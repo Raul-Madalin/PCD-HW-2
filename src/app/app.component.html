@@ -1,0 +1,40 @@
+
+<script src="https://accounts.google.com/gsi/client" async></script>
+
+
+
+<div id="app">
+  <nav class="navbar navbar-expand navbar-light" style="background-color: #6241ae">
+    <a href="#" class="navbar-brand"></a>
+    <ul class="navbar-nav mr-auto" routerLinkActive="active">
+      <li class="nav-item">
+        <a href="/" class="nav-link" routerLink="" style="color: white">Snap4Frame </a>
+      </li>
+      <!-- <li class="nav-item" *ngIf="showModeratorBoard">
+        <a href="/mod" class="nav-link" routerLink="mod">Moderator Board</a>
+      </li> -->
+    </ul>
+
+    <ul class="navbar-nav ml-auto" *ngIf="!isLoggedIn && isInted">
+      <li class="nav-item">
+        
+        <asl-google-signin-button type='standard' size='medium'>
+        </asl-google-signin-button>
+       
+      </li>
+     </ul>
+
+    <ul class="navbar-nav ml-auto" *ngIf="isLoggedIn">
+      <li class="nav-item">
+        <a href="/profile" class="nav-link" routerLink="profile">{{ username }}</a>
+      </li>
+      <li class="nav-item">
+        <a href class="nav-link" (click)="logout()">LogOut</a>
+      </li>
+    </ul>
+  </nav>
+
+<router-outlet></router-outlet>
+
+
+

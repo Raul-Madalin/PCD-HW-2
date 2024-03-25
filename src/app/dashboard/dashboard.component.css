@@ -1,0 +1,39 @@
+
+.chart-container {
+  padding: 20px;
+}
+
+
+  .containerBig {
+    width: 100%;
+    margin: 0 auto; 
+    align-content: center;
+    display: block;
+  }
+
+  .containerMedium {
+    width: 70%;
+    margin: 0 auto; 
+    display: inline-block;
+  }
+
+  
+  .containerSmall {
+    width: 30%;
+    margin: 0 auto; 
+    display: inline-block;
+  }
+
+  .container {
+    width: 50%;
+    display: inline-block;
+  }
+
+
+
+  .charts {
+    width: 100%; 
+    white-space: nowrap;
+    float: none;
+    box-sizing: border-box;
+}

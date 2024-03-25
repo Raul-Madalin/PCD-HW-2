@@ -1,0 +1,26 @@
+<div class="error-details">
+    <h2>Error Details</h2>
+    <div>
+        <p><strong>Value:</strong> {{ errorData?.value }}</p>
+        <p><strong>DateTime:</strong> {{ errorData?.datetime }}</p>
+    </div>
+    <h3>Stack Trace</h3>
+    <div *ngFor="let stack of errorData?.stacktrace; let i = index">
+        <h3>Frame {{ i + 1 }}</h3>
+    <p><strong>File:</strong> {{ stack.file }}</p>
+        <p><strong>Name:</strong> {{ stack.name }}</p>
+        <p><strong>Line Number:</strong> {{ stack.lineno }}</p>
+        <div *ngIf="stack.vars">
+            <h4>Variables:</h4>
+            <ul>
+                <li *ngFor="let variable of stack.vars | keyvalue">
+                    <strong>{{ variable.key }}:</strong> {{ variable.value }}
+                </li>
+            </ul>
+        </div>
+    </div>
+    <h3>Context</h3>
+    <p><strong>Interpreter:</strong> {{ errorData?.context?.interpreter?.name }} {{ errorData?.context?.interpreter?.version }}</p>
+    <p><strong>Path:</strong> {{ errorData?.context?.interpreter?.path }}</p>
+    <!-- Add more context details as needed -->
+</div>

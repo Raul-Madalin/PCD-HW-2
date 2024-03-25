@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTTP Request Example</title>
+</head>
+<body>
+
+<h1>HTTP Request Example</h1>
+
+<script>
+    // Function to handle the HTTP request
+    function sendHttpRequest() {
+        // Replace 'YOUR_URI' with the actual URI you want to send the request to
+        var uri = 'http://localhost:5000/api/v1/sensors';
+
+        // Create a new XMLHttpRequest object
+        var xhr = new XMLHttpRequest();
+
+        // Configure it: GET-request for the specified URI
+        xhr.open('GET', uri, true);
+
+        // Define a callback function to handle the response
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4) {
+                if (xhr.status === 200) {
+                    // Request was successful, handle the response here
+                    console.log('Response:', xhr.responseText);
+                } else {
+                    // Request failed, handle the error here
+                    console.error('Request failed with status:', xhr.status);
+                }
+            }
+        };
+
+        // Send the request
+        xhr.send();
+    }
+
+    // Call the function to send the HTTP request
+    sendHttpRequest();
+</script>
+
+</body>
+</html>

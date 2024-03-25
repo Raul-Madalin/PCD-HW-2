@@ -1,0 +1,26 @@
+<mat-drawer-container class="sidenav-container">
+  <mat-drawer mode="side" opened style="height: 400px;">
+    <mat-list role="list" style="height: 400px;">
+      <mat-list-item role="listitem">
+        <button mat-raised-button class="custom-button" color="primary" (click)="assignComponent('t-home')" >Home</button>
+      </mat-list-item>
+      
+      <mat-list-item role="listitem">
+        <button *ngIf="isLoggedIn" mat-raised-button class="custom-button" color="primary" (click)="assignComponent('sensors')" >Sensors Data</button>
+      </mat-list-item>
+      <!-- <mat-list-item role="listitem">
+        <button *ngIf="isLoggedIn" mat-raised-button class="custom-button" color="primary" (click)="assignComponent('dashboard')" >Dashboard</button>
+      </mat-list-item> -->
+     
+      <!-- <mat-list-item role="listitem">
+        <button mat-raised-button class="custom-button" color="primary" (click)="assignComponent('flights')">Reports</button>
+      </mat-list-item> -->
+    </mat-list>
+  </mat-drawer>
+  <mat-drawer-content style="background: white; height: 100%;">
+    <div>
+      <ng-container *ngComponentOutlet="dummyComponent" style="width: 1000px;"></ng-container>
+    </div>
+  </mat-drawer-content>
+</mat-drawer-container>
+

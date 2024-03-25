@@ -1,0 +1,42 @@
+
+  
+  #projectTitle {
+    font-family: 'Papyrus', fantasy;
+    font-size: 2.5em;
+    color: purple;
+    margin: 50px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+  }
+  
+  .question {
+    font-size: 1.5em;
+    display: flex;
+  }
+  
+  button {
+    cursor: pointer;
+    outline: none;
+    border: none;
+    background-color: white;
+    margin: 25px;
+    margin-left: 50px;
+  }
+  
+  .answear {
+    display: none;
+    font-size: 1.25em;
+    margin-left: 50px;
+  }
+  
+  #questionsBody {
+    /* border-style: groove; */
+    text-align: center;
+    margin: auto;
+    width: 35%;
+  }
+  
+  li {
+    text-align: left;
+  }

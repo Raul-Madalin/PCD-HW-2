@@ -1,0 +1,66 @@
+.button-with-icon:hover i {
+    color: #4CAF50; /* Green color when hovered over */
+}
+
+.button-with-icon i {
+    color: inherit; /* Inherit button's text color */
+    transition: color 0.3s ease;
+}
+
+.center-container {
+    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Adjust as needed */
+  }
+  
+  .centered-input {
+    width: 300px; /* Adjust as needed */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+
+
+
+
+  
+.chart-container {
+    padding: 20px;
+  }
+  
+  
+    .containerBig {
+      width: 100%;
+      margin: 0 auto; 
+      align-content: center;
+      display: block;
+    }
+  
+    .containerMedium {
+      width: 70%;
+      margin: 0 auto; 
+      display: inline-block;
+    }
+  
+    
+    .containerSmall {
+      width: 30%;
+      margin: 0 auto; 
+      display: inline-block;
+    }
+  
+    /* .container {
+      width: 50%;
+      display: inline-block;
+    } */
+  
+  
+  
+    .charts {
+      width: 100%; 
+      white-space: nowrap;
+      float: none;
+      box-sizing: border-box;
+  }

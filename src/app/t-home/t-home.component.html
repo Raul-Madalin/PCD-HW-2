@@ -1,0 +1,49 @@
+<script>
+    function toggleText(textName) {
+        console.log("pass")
+  var hiddenText = document.getElementById(textName);
+
+  if (hiddenText.style.display === "none" || hiddenText.style.display === "") {
+    hiddenText.style.display = "block";
+  } else {
+    hiddenText.style.display = "none";
+  }
+}
+</script>
+<mat-card class="example-card" style="width: 800px;margin: 0 auto;">
+
+    <iframe width="800" height="450px"  src="https://www.youtube.com/embed/_7gIDWbANbU?si=sURGVMN5rBKIO9HK;autoplay=1&mute=1" style="margin: 0 auto; margin-top: 30px;"
+      frameborder="0" allowfullscreen></iframe>
+
+    <button (click)="toggleText(1)">What is Snap4Frame?</button>
+    <ul [style.display]="isTextVisible1 ? 'block' : 'none'" class="answear">
+      <li>Introducing Snap4Frame, the revolutionary app poised to transform how developers tackle Python stack traces! Gone are the days of superficial analysis and cryptic error messages. With Snap4Frame, dive deep into the heart of your stack traces like never before.
+
+        Harnessing the power of cutting-edge AI algorithms and machine learning wizardry, Snap4Frame doesn't just stop at deciphering the surface-level errors. Oh no, it delves into the very essence of your code's soul, extracting insights that would make even the most seasoned developers blush with admiration.
+        
+        Picture this: you encounter a stack trace that leaves you scratching your head. Fear not, for Snap4Frame swoops in like a digital superhero, parsing through each line with unparalleled precision. But wait, there's more! Snap4Frame doesn't just tell you what went wrong; it tells you why it went wrong, uncovering hidden patterns, uncovering hidden patterns, and unraveling the mysteries of your codebase like a seasoned detective.
+        
+        But that's not all! Snap4Frame goes above and beyond mere analysis. It offers personalized recommendations tailored to your coding style, suggesting optimizations, refactorings, and even offering a virtual high-five when you write particularly elegant code.
+        
+        Say goodbye to endless hours of debugging drudgery. With Snap4Frame, debugging becomes a joyous journey of discovery, innovation, and maybe even a touch of magic. Try Snap4Frame today and unlock the true potential of your Python stack traces!
+        </li>
+    </ul>
+
+    <button (click)="toggleText(2)">What are the main selling points?</button>
+    <ul [style.display]="isTextVisible2 ? 'block' : 'none'" class="answear">
+        <li>Real-time Stack Trace Monitoring: Snap4Frame revolutionizes error resolution by providing real-time insights into Python stack traces. It offers instant visibility into critical aspects of code execution, including function performance, memory usage, environmental variables, and the status of various processes.</li>
+        <li>Security and Compliance Assurance: Snap4Frame keeps a vigilant eye on code security and compliance. Through continuous monitoring and analysis, it detects potential vulnerabilities, ensures adherence to coding standards, and alerts users to any deviations from best practices.</li>
+        <li>Predictive Stack Trace Maintenance: Employing advanced predictive analytics, Snap4Frame anticipates stack trace maintenance needs. By proactively addressing potential errors and bottlenecks, it minimizes downtime, reduces debugging costs, and optimizes overall code efficiency.</li>
+        <li>Data-Driven Insights: Snap4Frame doesn't just analyze stack traces; it transforms raw data into actionable insights. Through sophisticated data analytics, it identifies recurring patterns, uncovers root causes of errors, and provides recommendations for optimizing code performance and reliability.</li>
+        <li>User-Friendly Interface: Snap4Frame boasts an intuitive interface accessible via web and mobile applications. This empowers developers and stakeholders to effortlessly navigate through stack trace data, receive real-time alerts, and collaborate effectively to streamline the debugging process and enhance code quality.</li>
+    </ul>
+
+
+    <button (click)="toggleText(3)">Who made Snap4Frame?</button>
+    <ul [style.display]="isTextVisible3 ? 'block' : 'none'" class="answear">
+      <li>Boboc Raul</li>
+      <li>Panaitescu Adrian</li>
+      <li>Pasat Tudor</li>
+      <li>Smoc George-Marian</li>
+    </ul>
+    </mat-card>
