@@ -99,7 +99,9 @@ import { ErrorDetailsComponent } from './error-details/error-details.component';
         providers: [
           {
             id: GoogleLoginProvider.PROVIDER_ID,
-            provider: new GoogleLoginProvider(TOKEN)
+            provider: new GoogleLoginProvider(
+              '855697926777-fc2ujb2oi4bu70jtrplo0bns1k0akv6h.apps.googleusercontent.com'
+            )
           }
         ],
         onError: (err: any) => {

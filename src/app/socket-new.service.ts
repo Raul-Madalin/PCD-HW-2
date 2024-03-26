@@ -9,7 +9,8 @@ export class SocketNewService {
   public messageReceived: Subject<any[]> = new Subject<any[]>();
 
   constructor() { 
-    this.socket = new WebSocket('https://vertical-mapper-418320.oa.r.appspot.com/');
+    this.socket = new WebSocket('ws://34.155.188.79:8080/ws');
+    // this.socket = new WebSocket('ws://localhost:8080/ws');
 
     this.socket.onopen = () => {
       console.log('WebSocket connection established.');
@@ -31,7 +32,8 @@ export class SocketNewService {
   }
 
   sendMessage(message: any): void {
-    this.socket.send(message);
+    console.log("Sending", message);
+    this.socket.send(JSON.stringify(message));
   }
 
 

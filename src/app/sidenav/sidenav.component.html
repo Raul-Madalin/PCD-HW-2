@@ -5,8 +5,8 @@
         <button mat-raised-button class="custom-button" color="primary" (click)="assignComponent('t-home')" >Home</button>
       </mat-list-item>
       
-      <mat-list-item role="listitem">
-        <button *ngIf="isLoggedIn" mat-raised-button class="custom-button" color="primary" (click)="assignComponent('sensors')" >Sensors Data</button>
+      <mat-list-item role="listitem" *ngIf="isLoggedIn">
+        <button mat-raised-button class="custom-button" color="primary" (click)="assignComponent('sensors')" >Reports Data</button>
       </mat-list-item>
       <!-- <mat-list-item role="listitem">
         <button *ngIf="isLoggedIn" mat-raised-button class="custom-button" color="primary" (click)="assignComponent('dashboard')" >Dashboard</button>

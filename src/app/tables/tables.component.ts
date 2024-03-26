@@ -17,7 +17,8 @@ export class TablesComponent {
   title = 'clients_manager_front';
   projectId = "";
   lastProjectId = "";
-  displayedColumns: string[] = ['id',  'report', 'timestamp', 'actions'];
+  isDone=false;
+  displayedColumns: string[] = ['id',  'report', 'datetime', 'actions'];
   dataSource!: MatTableDataSource<any>;
   showList: { [key: string]: boolean } = {};
   chart: Object = [];
@@ -42,7 +43,7 @@ export class TablesComponent {
     var startMsg = {
       "action": "report_solved",
       "params": {
-        "project-id": `${rowId}`
+        "report_id": `${rowId}`
       }
     };
     const indexToRemove = this.tableData.findIndex(item => item["id"] === rowId); // Find the index of the item to remove
@@ -62,18 +63,24 @@ export class TablesComponent {
       var startMsg = {
         "action": "bind_project",
         "params": {
-          "project-id": `${this.projectId}`
+          "project_token": `${this.projectId}`
         }
       };
+      this.tableData = [];
       this.apiNew.sendMessage(startMsg);
+      
+      if (!this.isDone) {
+      this.isDone = true;
       this.apiNew.messageReceived.subscribe((res) => {
-            this.tableData = this.tableData.concat(res);
+            var filteredItems = res.filter(item => item.resolved === false);
+            this.tableData = this.tableData.concat(filteredItems);
             console.log("Table data: ", this.tableData);
             this.dataSource = new MatTableDataSource<any>(this.tableData);
             this.dataSource.paginator = this.paginator;
             this.dataSource.sort = this.sort;
             this.mapMonthlyDistribution(this.tableData);
       })
+    }
       // console.log("Start msg:", startMsg);
       // this.api.subscribe();
       // this.api.sendMessage(startMsg, -1);
@@ -108,10 +115,10 @@ export class TablesComponent {
 
   extractYearAndMonth(originalDateString: any): string {
     // Convert the string to a Date object
-    const dateObject = new Date(originalDateString * 1000);
+    const dateObject = new Date(originalDateString);
 
     // Format the Date object to get the year and month
-    const formattedDate = this.datePipe.transform(dateObject, 'yyyy-MM-dd HH:mm:ss');
+    const formattedDate = this.datePipe.transform(dateObject, 'yyyy-MM-ddTHH:mm:ss');
 
     console.log(formattedDate); // Output: 2023-12
     if (formattedDate == null) {
@@ -127,7 +134,7 @@ export class TablesComponent {
 
 
     for (const measure of res) {
-      let value = this.extractYearAndMonth(measure["timestamp"]);
+      let value = this.extractYearAndMonth(measure.report["datetime"]);
 
       if (intervalsCount.has(value)) {
         // Number is already in the map, increase the count
