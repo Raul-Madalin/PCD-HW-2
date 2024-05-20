@@ -1,5 +1,5 @@
 [submodule "snap4frame-backend"]
-	path = snap4frame-backend
+	path = HW-2/snap4frame-backend
 	url = https://github.com/AdrianCert/msai-pdc.git
 [submodule "snap4frame"]
 	path = HW-2/snap4frame
