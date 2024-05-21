@@ -10,23 +10,17 @@ module.exports = {
   describe: 'Read content of a file in a DSU',
   handler: (argv) => {
     const { keySSI: keySSI, filePath: filePath } = argv;
-    process.stdout.write(`Creating DSU and saving KeySSI to: ${filePath}`);
-    
-    const seedSSI = KeySSISpace.createSeedSSI('default');
-    resolver.createDSU(seedSSI, (err, dsuInstance) => {
+    resolver.loadDSU(keySSI, (err, dsuInstance) => {
       if (err) {
-        process.stdout.write(`Error creating DSU: ${err.message}`);
+        process.stdout.write(`Error loading DSU: ${err.message}\n`);
         return;
       }
-
-      dsuInstance.getKeySSIAsString((err, dsussi) => {
+      dsuInstance.readFile(filePath, (err, data) => {
         if (err) {
-          process.stdout.write(`Error getting KeySSI as string: ${err.message}`);
+          process.stdout.write(`Error reading file: ${err.message}\n`);
           return;
         }
-
-        fs.writeFileSync(filePath, dsussi, 'utf8');
-        process.stdout.write(`DSU created successfully. KeySSI saved to: ${filePath}`);
+        process.stdout.write(`File content: ${data.toString()}\n`);
       });
     });
   }
