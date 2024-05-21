@@ -1,4 +1,4 @@
-require("../opendsu-sdk/builds/output/openDSU");
+require("../../opendsu-sdk/builds/output/openDSU");
 const path = require("path");
 const os = require("os");
 const cp = require("child_process");
