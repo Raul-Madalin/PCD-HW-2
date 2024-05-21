@@ -1,4 +1,4 @@
-require("../opendsu-sdk/builds/output/openDSU");
+require("../../opendsu-sdk/builds/output/openDSU");
 
 const opendsu = require('opendsu');
 const resolver = opendsu.loadAPI('resolver');
